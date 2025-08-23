@@ -1,33 +1,54 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import NavBar from './Components/NavBar'
+import ProductCard from './Components/ProductCard'
+import Cartitems from './Components/Cartitems'
+import Footer from './Components/Footer'
+import Home from './Pages/Home'
+import Products from './Pages/Products'
+import ProductDetails from './Pages/ProductDetails'
+import Checkout from './Pages/Checkout'
+import Contact from './Pages/Contact'
+import Layout from './Components/Layout'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import About from './Pages/About'
+import ErrorPage from './Pages/ErrorPage'
+
+ const router= createBrowserRouter([
+  {
+    path:"/",
+    element:<Layout/>,
+    errorElement:<ErrorPage/>,
+    children:[
+      {path:'/', element:<Home/>},
+      {path:"/Product",element:<Products/>},
+      {path:"/Checkout",element:<Checkout/>},
+      {path:"/ProductDetails",element:<ProductDetails/>},
+      {path:"/Contactus",element:<Contact/>},
+      {path:"/Aboutus",element:<About/>}]
+  }
+ ])
+
+
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    {/* <About/> */}
+    {/* <Contact/> */}
+    {/* <Home/> */}
+    {/* <Products/> */}
+      {/* <NavBar/>
+     <ProductCard/>
+      <Cartitems/>
+      <Footer/> */}
+    {/* <ProductDetails/> */}
+    {/* <Checkout/> */}
+      <RouterProvider router={router}/>
     </>
   )
 }
