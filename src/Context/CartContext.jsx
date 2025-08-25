@@ -5,15 +5,15 @@ import { createContext, useState } from "react";
 
 
  export const CartContextProvider=(props)=>{
-            const [Cartitems,setCartitems]= useState([])  
+            const [Cartitem,setCartitems]= useState([])  
 
 
- console.log(Cartitems);
+//  console.log(Cartitems);
  
 
     return (
-         <CartContext value={{Cartitems,setCartitems}}>
+         <CartContext.Provider value={{Cartitem,setCartitems}}>
              {props.children}
-         </CartContext>
+         </CartContext.Provider>
     )
  }
