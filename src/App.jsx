@@ -24,6 +24,7 @@ import CartPage from './Pages/Cartpage'
       {path:"/Product",element:<Products/>},
       {path:"/CartPage",element:<CartPage/>},
       {path:"Product/ProductDetails/:id",element:<ProductDetails/>},
+      {path:"/ProductDetails/:id",element:<ProductDetails/>},
       {path:"/Contactus",element:<Contact/>},
       {path:"/Aboutus",element:<About/>},
       {path:'/Checkout',element:<Checkout/>}

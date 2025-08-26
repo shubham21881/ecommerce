@@ -44,7 +44,10 @@ const Home = () => {
             threefeaturedproduct.map((itm)=>(
                       // console.log(itm.id);
                       
-              <ProductCard key={itm.id} product={itm} />
+                       <NavLink to={`/ProductDetails/${itm.id}`}>
+
+                         <ProductCard key={itm.id} product={itm} />
+                       </NavLink>
             ))
           }
           

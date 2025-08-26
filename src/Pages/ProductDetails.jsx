@@ -3,9 +3,10 @@ import React from "react";
 // import { useParams } from "react-router-dom"; // if using react-router
 import { ProductContext } from "../Context/ProductContext";
 import { useContext } from "react";
-
+import { CartContext } from '../Context/CartContext';
 
 const ProductDetails = () => {
+  const cart=useContext(CartContext)
   // For demo, we'll use static product data (you can fetch by ID later)
   const { id } = useParams(); // product ID from URL
   
@@ -44,12 +45,21 @@ console.log(product);
           <p className="text-gray-700 mb-6">{product.description}</p>
 
           <div className="flex gap-4">
-            <button  className="bg-[#A084DC] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#8c6cd4] transition">
-              Add to Cart
-            </button>
-            <button className="border-2 border-[#A084DC] text-[#A084DC] px-6 py-3 rounded-lg font-semibold hover:bg-[#A084DC] hover:text-white transition">
-              Buy Now
-            </button>
+           <button onClick={(e)=>{
+                   e.stopPropagation()
+                   e.preventDefault()
+                  return cart.setCartitems((prevcart)=>{
+                            const existing=prevcart.find((item)=>item.id===product.id);
+                            if(existing){
+                              return prevcart.map((item)=>item.id===product.id? {...item,quantity:item.quantity+1}:item);
+                            }else{
+                              return [...prevcart,{ productname: product.title,price: product.price,id: product.id,quantity: 1,image:product.image}]
+                            }
+              })} }  
+              className="mt-3 w-full bg-[#A084DC] text-white py-2 rounded-lg hover:bg-[#8c6cd4] transition">
+                Add to Cart
+              </button>
+            
           </div>
         </div>
       </div>
