@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { ProductContext } from "../Context/ProductContext";
 import { CartContext } from "../Context/CartContext";
 import ProductCard from "../Components/ProductCard";
+import { NavLink } from "react-router-dom";
 
 const Products = () => {
   // Sample products (later you can fetch from API or context)
@@ -66,7 +67,10 @@ const Products = () => {
       <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
         
         {Allproducts.Productitems.map((product) => (
-          <ProductCard key={product.id} product={product}/>
+          
+          <NavLink to={`ProductDetails/${product.id}`}>
+            <ProductCard key={product.id} product={product}/>
+          </NavLink>
         ))}
 
       </div>

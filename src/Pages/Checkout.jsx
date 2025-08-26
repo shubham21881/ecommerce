@@ -1,8 +1,20 @@
 // src/pages/Checkout.jsx
 import React from "react";
 import Cartitems from "../Components/Cartitems";
+import { CartContext } from "../Context/CartContext";
+import { useContext } from "react";
+
 
 const Checkout = () => {
+ const  {Cartitem}= useContext(CartContext)
+ console.log(Cartitem);
+ 
+const finaltotal=Cartitem.reduce((a,b)=>{
+  return a+b.price*b.quantity
+},0)
+
+
+
   return (
     <div className="w-full py-16 px-6 md:px-20 bg-gray-50">
       <h1 className="text-3xl font-bold mb-10 text-center">Checkout</h1>
@@ -17,7 +29,7 @@ const Checkout = () => {
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#A084DC]"
-                placeholder="John Doe"
+                placeholder="write your full name"
               />
             </div>
             <div>
@@ -25,7 +37,7 @@ const Checkout = () => {
               <input
                 type="email"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#A084DC]"
-                placeholder="johndoe@email.com"
+                placeholder="example@email.com"
               />
             </div>
             <div>
@@ -94,18 +106,19 @@ const Checkout = () => {
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
              
 
-          <div className="space-y-4">
-            <div className="flex justify-between">
-              <p>Wireless Headphones</p>
-              <p>₹1999</p>
+          <div className="space-y-4"> 
+          {Cartitem.map((item,index)=>(
+              <div key={index} className="flex justify-between">
+              <p className="font-bold"><h1>{index+1}</h1>{item.productname}<p>Quantity:{item.quantity}</p></p>
+              
+              <p>{item.price*item.quantity}</p>
             </div>
-            <div className="flex justify-between">
-              <p>Smart Watch</p>
-              <p>₹2499</p>
-            </div>
+          ))}
+           
+           
             <div className="flex justify-between font-semibold border-t pt-4">
               <p>Total</p>
-              <p>₹4498</p>
+              <p>{finaltotal}</p>
             </div>
           </div>
 

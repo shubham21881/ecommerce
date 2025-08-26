@@ -23,7 +23,7 @@ import CartPage from './Pages/Cartpage'
       {path:'/', element:<Home/>},
       {path:"/Product",element:<Products/>},
       {path:"/CartPage",element:<CartPage/>},
-      {path:"/ProductDetails",element:<ProductDetails/>},
+      {path:"Product/ProductDetails/:id",element:<ProductDetails/>},
       {path:"/Contactus",element:<Contact/>},
       {path:"/Aboutus",element:<About/>},
       {path:'/Checkout',element:<Checkout/>}
