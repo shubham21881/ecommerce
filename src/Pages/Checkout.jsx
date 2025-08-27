@@ -20,7 +20,39 @@ const finaltotal=Cartitem.reduce((a,b)=>{
       <h1 className="text-3xl font-bold mb-10 text-center">Checkout</h1>
 
       <div className="grid md:grid-cols-2 gap-10">
+
+
+
+
+           {/* Order Summary */}
+        <div className="bg-white p-6 rounded-xl shadow-lg h-[750px] overflow-y-auto">
+          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+             
+
+          <div className="space-y-4"> 
+          {Cartitem.map((item,index)=>(
+              <div key={index} className="flex justify-between">
+              <p className="font-bold "><h1>{index+1}</h1>{item.productname} <p className="text-red-800">Quantity:{item.quantity}</p></p>
+              
+              <p >{item.price*item.quantity}</p>
+            </div>
+          ))}
+           
+           
+            <div className="flex justify-between font-semibold border-t pt-4">
+              <p>Total</p>
+              <p>{finaltotal}</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
         {/* Checkout Form */}
+
+
+
         <div className="bg-white p-6 rounded-xl shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Shipping Information</h2>
           <form className="space-y-4">
@@ -101,28 +133,11 @@ const finaltotal=Cartitem.reduce((a,b)=>{
           </form>
         </div>
 
-        {/* Order Summary */}
-        <div className="bg-white p-6 rounded-xl shadow-lg h-[750px] overflow-y-auto">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-             
+     
 
-          <div className="space-y-4"> 
-          {Cartitem.map((item,index)=>(
-              <div key={index} className="flex justify-between">
-              <p className="font-bold"><h1>{index+1}</h1>{item.productname}<p>Quantity:{item.quantity}</p></p>
-              
-              <p>{item.price*item.quantity}</p>
-            </div>
-          ))}
-           
-           
-            <div className="flex justify-between font-semibold border-t pt-4">
-              <p>Total</p>
-              <p>{finaltotal}</p>
-            </div>
-          </div>
 
-        </div>
+
+
       </div>
     </div>
   );

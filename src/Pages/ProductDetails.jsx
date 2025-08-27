@@ -1,14 +1,14 @@
  import { useParams } from "react-router-dom";
 import React from "react";
-// import { useParams } from "react-router-dom"; // if using react-router
+
 import { ProductContext } from "../Context/ProductContext";
 import { useContext } from "react";
 import { CartContext } from '../Context/CartContext';
 
 const ProductDetails = () => {
   const cart=useContext(CartContext)
-  // For demo, we'll use static product data (you can fetch by ID later)
-  const { id } = useParams(); // product ID from URL
+  
+  const { id } = useParams(); 
   
   const {Productitems}= useContext(ProductContext)
   console.log(Productitems);

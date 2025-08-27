@@ -14,6 +14,9 @@ import About from './Pages/About'
 import ErrorPage from './Pages/ErrorPage'
 import CartPage from './Pages/Cartpage'
 
+
+
+
  const router= createBrowserRouter([
   {
     path:"/",
@@ -52,6 +55,7 @@ function App() {
       <Footer/> */}
     {/* <ProductDetails/> */}
     {/* <Checkout/> */}
+       
       <RouterProvider router={router}/>
       {/* <CartPage/> */}
     </>
