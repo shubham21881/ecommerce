@@ -12,7 +12,7 @@ import Layout from './Components/Layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import About from './Pages/About'
 import ErrorPage from './Pages/ErrorPage'
-import CartPage from './Pages/Cartpage'
+import CartPage from './Pages/CartPage'
 
 
 
